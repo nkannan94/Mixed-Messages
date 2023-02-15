@@ -40,8 +40,7 @@ const generateShout = () => {
     return shoutArray;
 }
 
-//Translate the dragon word to human language and store in an array
-//The dragon word and human language indecies are equal
+//Translate the dragon shout to human language and store in an array
 const translateShout = array => {
     const humanShoutArray = [];
 
@@ -68,8 +67,21 @@ const translateShout = array => {
     return humanShoutArray
 }
 
+//Combines generateShout and translateShout into one function that will format the arrays and log them to the console with a message for the user
+const randomShout = () => {
+    const dragonShout = generateShout();
+    const humanShout = translateShout(dragonShout);
 
-//TESTING
+    console.log(`Your new shout is '${dragonShout.join(' ')}' as spoken in the dragon tongue.`);
+    console.log(`This shout means '${humanShout.join(' ')}' in the human tongue.`);
+}
+
+    
+//TESTING 
+/*
 const dragonShout = generateShout();
 console.log(dragonShout);
 console.log(translateShout(dragonShout));
+*/
+
+randomShout();
