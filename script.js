@@ -13,7 +13,7 @@ const humanWords = {
 
 //Returns an array with 3 random dragon words
 const generateShout = () => { 
-    const shout = [];
+    const shoutArray = [];
 
     for (i = 0; i < 3; i++) {
         const numOfWords = dragonWords.firstWord.length -1;
@@ -21,26 +21,55 @@ const generateShout = () => {
 
         switch (i) {
             case 0:
-                shout.push(dragonWords.firstWord[randomNum]);
-                console.log(dragonWords.firstWord.indexOf(dragonWords.firstWord[randomNum]));
+                shoutArray.push(dragonWords.firstWord[randomNum]);
+                // console.log(dragonWords.firstWord.indexOf(dragonWords.firstWord[randomNum]));
                 break;
             case 1:
-                shout.push(dragonWords.secondWord[randomNum]);
-                console.log(dragonWords.secondWord.indexOf(dragonWords.secondWord[randomNum]));
+                shoutArray.push(dragonWords.secondWord[randomNum]);
+                // console.log(dragonWords.secondWord.indexOf(dragonWords.secondWord[randomNum]));
                 break;
             case 2:
-                shout.push(dragonWords.thirdWord[randomNum]);
-                console.log(dragonWords.thirdWord.indexOf(dragonWords.thirdWord[randomNum]));
+                shoutArray.push(dragonWords.thirdWord[randomNum]);
+                // console.log(dragonWords.thirdWord.indexOf(dragonWords.thirdWord[randomNum]));
                 break;
             default:
                 console.log('ERROR: generateShout was unable to create your shout.');
+                break;
         }
     }
-    return shout;
+    return shoutArray;
 }
 
-console.log(generateShout());
-
-
-//Translate the dragon word to human language
+//Translate the dragon word to human language and store in an array
 //The dragon word and human language indecies are equal
+const translateShout = array => {
+    const humanShoutArray = [];
+
+    for (i = 0; i < array.length; i++) {
+
+        switch (i) {
+            case 0:
+                const dragonFirstIndex = dragonWords.firstWord.indexOf(array[i]);
+                humanShoutArray.push(humanWords.firstWord[dragonFirstIndex]);
+                // console.log(humanWords.firstWord.indexOf(humanWords.firstWord[dragonFirstIndex]));
+                break;
+            case 1:
+                const dragonSecondIndex = dragonWords.secondWord.indexOf(array[i]);
+                humanShoutArray.push(humanWords.secondWord[dragonSecondIndex]);
+                // console.log(humanWords.secondWord.indexOf(humanWords.secondWord[dragonSecondIndex]));
+                break;
+            case 2:
+                const dragonThirdIndex = dragonWords.thirdWord.indexOf(array[i]);
+                humanShoutArray.push(humanWords.thirdWord[dragonThirdIndex]);
+                // console.log(humanWords.thirdWord.indexOf(humanWords.thirdWord[dragonThirdIndex]));
+                break;
+        }
+    }
+    return humanShoutArray
+}
+
+
+//TESTING
+const dragonShout = generateShout();
+console.log(dragonShout);
+console.log(translateShout(dragonShout));
