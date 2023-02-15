@@ -11,10 +11,36 @@ const humanWords = {
     thirdWord: ['Pack', 'Hunt', 'Inspire', 'Bind', 'Dragon', 'Wing', 'Legend', 'Summer', 'Strike', 'Defeat', 'Terror', 'Wyrm', 'Temporary', 'Health', 'Grace', 'Sun', 'Freeze', 'Statue', 'Trust', 'Suffer', 'Eternity', 'Zombie', 'Lightning', 'Dying', 'Far', 'Push', 'Tempest']
 };
 
-//Randomly generate the dragon word
-const numOfWords = dragonWords.firstWord.length -1; 
-let randomNum = Math.floor(Math.random() * numOfWords);
-console.log(numOfWords); //Should log length of array
+//Returns an array with 3 random dragon words
+const generateShout = () => { 
+    const shout = [];
+
+    for (i = 0; i < 3; i++) {
+        const numOfWords = dragonWords.firstWord.length -1;
+        let randomNum = Math.floor(Math.random() * numOfWords);
+
+        switch (i) {
+            case 0:
+                shout.push(dragonWords.firstWord[randomNum]);
+                console.log(dragonWords.firstWord.indexOf(dragonWords.firstWord[randomNum]));
+                break;
+            case 1:
+                shout.push(dragonWords.secondWord[randomNum]);
+                console.log(dragonWords.secondWord.indexOf(dragonWords.secondWord[randomNum]));
+                break;
+            case 2:
+                shout.push(dragonWords.thirdWord[randomNum]);
+                console.log(dragonWords.thirdWord.indexOf(dragonWords.thirdWord[randomNum]));
+                break;
+            default:
+                console.log('ERROR: generateShout was unable to create your shout.');
+        }
+    }
+    return shout;
+}
+
+console.log(generateShout());
+
 
 //Translate the dragon word to human language
 //The dragon word and human language indecies are equal
