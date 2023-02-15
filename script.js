@@ -22,15 +22,12 @@ const generateShout = () => {
         switch (i) {
             case 0:
                 shoutArray.push(dragonWords.firstWord[randomNum]);
-                // console.log(dragonWords.firstWord.indexOf(dragonWords.firstWord[randomNum]));
                 break;
             case 1:
                 shoutArray.push(dragonWords.secondWord[randomNum]);
-                // console.log(dragonWords.secondWord.indexOf(dragonWords.secondWord[randomNum]));
                 break;
             case 2:
                 shoutArray.push(dragonWords.thirdWord[randomNum]);
-                // console.log(dragonWords.thirdWord.indexOf(dragonWords.thirdWord[randomNum]));
                 break;
             default:
                 console.log('ERROR: generateShout was unable to create your shout.');
@@ -50,17 +47,17 @@ const translateShout = array => {
             case 0:
                 const dragonFirstIndex = dragonWords.firstWord.indexOf(array[i]);
                 humanShoutArray.push(humanWords.firstWord[dragonFirstIndex]);
-                // console.log(humanWords.firstWord.indexOf(humanWords.firstWord[dragonFirstIndex]));
                 break;
             case 1:
                 const dragonSecondIndex = dragonWords.secondWord.indexOf(array[i]);
                 humanShoutArray.push(humanWords.secondWord[dragonSecondIndex]);
-                // console.log(humanWords.secondWord.indexOf(humanWords.secondWord[dragonSecondIndex]));
                 break;
             case 2:
                 const dragonThirdIndex = dragonWords.thirdWord.indexOf(array[i]);
                 humanShoutArray.push(humanWords.thirdWord[dragonThirdIndex]);
-                // console.log(humanWords.thirdWord.indexOf(humanWords.thirdWord[dragonThirdIndex]));
+                break;
+            default:
+                console.log('ERROR: translateShout was unable to translate your shout.');
                 break;
         }
     }
@@ -71,17 +68,9 @@ const translateShout = array => {
 const randomShout = () => {
     const dragonShout = generateShout();
     const humanShout = translateShout(dragonShout);
-
     console.log(`Your new shout is '${dragonShout.join(' ')}' as spoken in the dragon tongue.`);
     console.log(`This shout means '${humanShout.join(' ')}' in the human tongue.`);
 }
 
-    
-//TESTING 
-/*
-const dragonShout = generateShout();
-console.log(dragonShout);
-console.log(translateShout(dragonShout));
-*/
-
+//TEST
 randomShout();
